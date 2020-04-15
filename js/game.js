@@ -11,8 +11,7 @@ function round() {
   $('.target').removeClass('target');
   $('.miss').removeClass('miss')
   $('#button-start').hide();
-  // FIXME: надо бы убрать "target" прежде чем искать новый
-
+  
   let divSelector = randomDivId();
   $(divSelector).addClass("target");
   $(divSelector).text(hits+1)
@@ -24,8 +23,7 @@ function round() {
 
 function endGame() {
   $('.game-field').hide();
-  // FIXME: спрятать игровое поле сначала
-
+  
   let totalPlayedMillis = getTimestamp() - firstHitTime;
   let totalPlayedSeconds = Number(totalPlayedMillis / 1000).toPrecision(3);
   $("#total-time-played").text(totalPlayedSeconds);
@@ -34,7 +32,6 @@ function endGame() {
 }
 
 function handleClick(event) {
-  // FIXME: убирать текст со старых таргетов. Кажется есть .text?
   let target = $(event.target)
   if (target.hasClass("target")) {
     hits = hits + 1;
@@ -44,7 +41,6 @@ function handleClick(event) {
     fails +=1
     $(target).addClass('miss');
   }
-  // TODO: как-то отмечать если мы промахнулись? См CSS класс .miss
 }
 
 
